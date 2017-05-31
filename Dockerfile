@@ -86,7 +86,7 @@ RUN	apt-get update && \
 		libradiusclient-ng-dev \
 
 		aptitude 	      && \
-
+		libjson-perl libnagios-plugin-perl libwww-perl && \
 
 		apt-get clean 	      && \
 		apt-get autoclean     && \
@@ -255,6 +255,10 @@ RUN \
 	chown www-data:www-data /usr/local/nagvis -R	&& \
 	rm /var/www/html/index.html		  	&& \
 	ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
+
+RUN cd /usr/local/nagios/libexec && \
+	wget https://raw.githubusercontent.com/c-kr/check_json/master/check_json.pl && \
+	chmod a+x check_json.pl
 
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod 755 /entrypoint.sh
