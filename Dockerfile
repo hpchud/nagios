@@ -84,9 +84,8 @@ RUN	apt-get update && \
 		python-dev python-setuptools uuid-dev snmp apache2-threaded-dev \
 		libncurses5-dev dietlibc-dev  libpcap-dev  gettext  libgsf-1-dev \
 		libradiusclient-ng-dev \
-
+		libjson-perl libnagios-plugin-perl libwww-perl \
 		aptitude 	      && \
-		libjson-perl libnagios-plugin-perl libwww-perl && \
 
 		apt-get clean 	      && \
 		apt-get autoclean     && \
